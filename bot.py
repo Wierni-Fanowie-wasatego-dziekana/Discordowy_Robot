@@ -1,1 +1,19 @@
 import discord
+import responses
+
+async def wyslij_wiadomosc(message, user_message, is_private):
+    try:
+        response = responses.handle_response(user_message)
+        await message.author.send(response) if is_private else await message.channel.send(response)
+    except Exception as e:
+        print(e)
+
+def run_discord_bot():
+    TOKEN = 'MTA3NzU2Mzg1NjAzMDgxMDE0Mw.GkvAr2.Pn0FrR8XOGdiZt5wm_ZTdppWFqj7zuyqL23jDQ'
+    client = discord.Client()
+
+    @client.event()
+    async def on_ready():
+        print(f'{client.user} od teraz działa')
+
+    client.run(TOKEN)
