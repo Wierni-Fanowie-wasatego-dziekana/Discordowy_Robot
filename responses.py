@@ -1,5 +1,8 @@
-def handle_response(wiadomosc) -> str:
-    p_wiadomosc = wiadomosc.lower()
+def handle_response(message) -> str:
+    p_message = message.lower()
 
-    if p_wiadomosc == "siema" or p_wiadomosc == "czesc":
+    if p_message == "siema" or p_message == "czesc":
         return "Elo Elo"
+
+    if p_message == "obraź mi matkę":
+        return "Twoja stara to gruba kurwa"
